@@ -81,6 +81,7 @@ func TestExtrinsic_Sign(t *testing.T) {
 		SpecVersion:        123,
 		Tip:                NewUCompactFromUInt(2),
 		TransactionVersion: 1,
+		AppID:              NewU32(0),
 	}
 
 	assert.False(t, ext.IsSigned())
@@ -130,6 +131,7 @@ func TestExtrinsic_Sign(t *testing.T) {
 			GenesisHash: o.GenesisHash,
 			BlockHash:   o.BlockHash,
 		},
+		AppID: o.AppID,
 		TransactionVersion: 1,
 	}
 
@@ -166,6 +168,7 @@ func ExampleExtrinsic() {
 		Nonce:       NewUCompactFromUInt(1),
 		SpecVersion: 170,
 		Tip:         NewUCompactFromUInt(0),
+		AppID:       NewU32(0),
 	}
 
 	err = ext.Sign(signature.TestKeyringPairAlice, o)
